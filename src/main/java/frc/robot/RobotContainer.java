@@ -32,10 +32,10 @@ public class RobotContainer {
 
   private DriveSubsystem DRIVE_SUBSYSTEM = new DriveSubsystem(); 
   private GearboxSubsystem GEARBOX_SUBSYSTEM = new GearboxSubsystem(); 
-  private JawSubsystem JAW_SUBSYTEM = new JawSubsystem(); 
+  private JawSubsystem JAW_SUBSYSTEM = new JawSubsystem(); 
 
-  // private Joystick joystick = new Joystick(0); 
-  private XboxController controller = new XboxController(0); 
+  private Joystick joystick = new Joystick(0); 
+  // public XboxController controller = new XboxController(0); 
   
   // private JoystickButton buttonRB = new JoystickButton(joystick, 5); 
   // private JoystickButton buttonLB = new JoystickButton(joystick, 6); 
@@ -50,7 +50,10 @@ public class RobotContainer {
   }
 
  
-  private void configureBindings(){}
+  private void configureBindings(){
+
+
+  }
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
   
 
@@ -58,8 +61,17 @@ public class RobotContainer {
     // cancelling on release.
     
   private void configureButtonBindings(){
-    
+    Trigger BUTTON_A = new JoystickButton(joystick, jotstick.getRawButton(0));
+
+    // BUTTON_A.onTrue(JAW_SUBSYSTEM.JawTeleOpCommand(10));  
+
+  
+    // controller.a().onTrue(m_robotArm.setArmGoalCommand(2));
+  
+    BUTTON_A.onTrue(JawTeleOpCommand(JAW_SUBSYSTEM, 30)); 
   }
+
+
 
   private void defaultCommands(){
     DRIVE_SUBSYSTEM.setDefaultCommand(new DefaultDriveCommand(DRIVE_SUBSYSTEM, joystick));

@@ -14,10 +14,10 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
 
 public class JawSubsystem extends SubsystemBase {
-  
-
+   
   private CANSparkMax jawMotor = new CANSparkMax(5, MotorType.kBrushless); 
   private RelativeEncoder motorEncoder; 
+
   // add ticks to degrees code here
 
   /** Creates a new JawSubsystem. */
